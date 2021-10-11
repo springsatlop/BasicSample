@@ -23,6 +23,10 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.microsoft.appcenter.AppCenter;
+import com.microsoft.appcenter.analytics.Analytics;
+import com.microsoft.appcenter.crashes.Crashes;
+
 /**
  * An {@link Activity} that gets a text string from the user and displays it back when the user
  * clicks on one of the two buttons. The first one shows it in the same activity and the second
@@ -47,6 +51,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
         mTextView = (TextView) findViewById(R.id.textToBeChanged);
         mEditText = (EditText) findViewById(R.id.editTextUserInput);
+        AppCenter.start(getApplication(), "991816c2-0990-48f7-be1d-adf12435fd82", Analytics.class, Crashes.class);
     }
 
     @Override
