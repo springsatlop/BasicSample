@@ -5,7 +5,7 @@ buildscript {
     repositories {
         mavenCentral()
         // Insert local test repo here
-        jcenter()
+        jcenter { url "http://jcenter.bintray.com/"}
         google()
     }
     dependencies {
@@ -21,7 +21,7 @@ allprojects {
     repositories {
         mavenCentral()
         // Insert local test repo here
-        jcenter()
+        jcenter { url "http://jcenter.bintray.com/"}
         google()
     }
 }
