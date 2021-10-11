@@ -33,7 +33,8 @@ import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
-
+import com.microsoft.appcenter.espresso.Factory
+import org.junit.After
 
 /**
  * The kotlin equivalent to the ChangeTextBehaviorTest, that
@@ -53,6 +54,7 @@ class ChangeTextBehaviorKtTest {
      * [androidx.test.rule.ActivityTestRule].
      */
     @get:Rule var activityScenarioRule = activityScenarioRule<MainActivity>()
+    @get:Rule var reportHelper = Factory.getReportHelper()
 
     @Test
     fun changeText_sameActivity() {
@@ -77,6 +79,10 @@ class ChangeTextBehaviorKtTest {
         onView(withId(R.id.show_text_view)).check(matches(withText(STRING_TO_BE_TYPED)))
     }
 
+    @After
+    fun TearDown() {
+        reportHelper.label("Stopping App")
+    }
     companion object {
 
         val STRING_TO_BE_TYPED = "Espresso"
